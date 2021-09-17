@@ -3,15 +3,24 @@
 <h3>Transacciones realizadas: {{transacciones.length}}</h3>
 <div *ngFor="let x of transacciones">
   <div >
-   <h4 [style.background-color]="x.kind == 'spent'?'red':'green'" >{{x.name}}:</h4>
-   <span *ngIf="x.kind == 'income' ; else gasto">
-     🤢
-   </span>
-   <ng-template #gasto>
-     🧧
-  </ng-template>
+  <ul type='square'[style.background-color]="x.kind == 'spent'?'red':'green'">
+    <li>({{x.date | date :'shortDate'}}) {{x.name | uppercase}}:</li>
+    <li>Amount:
+    <span *ngIf="x.kind == 'income' ; else gasto">
+      +{{x.amount}}
+    </span>
+    <ng-template #gasto>
+      -{{x.amount}}
+   </ng-template>
+    $
+    </li>
+    <li>({{x.description}})</li>
+  </ul>
   </div>
 </div>
+<h3 [style.background-color]="balancetotal <= 0 ?'red':'green'">
+  Balance total: {{balancetotal}} $</h3>
+
 
 
 

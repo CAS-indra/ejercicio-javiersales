@@ -49,4 +49,22 @@ export class AppComponent {
       ownerId: 'world_admin',
     },
   ];
+
+  public balancetotal = this.getBalance();
+  public getBalance():number{
+    let total = 0;
+    this.transacciones.forEach(element =>{
+      if(element.kind == 'spent'){
+        total = total - element.amount;
+      } else {
+        total = total + element.amount;
+      }
+    });
+    return total;
+  }
+
+
+
+
+
 }
