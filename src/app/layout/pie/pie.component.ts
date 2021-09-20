@@ -9,6 +9,9 @@ export class PieComponent implements OnInit {
 
   constructor() { }
 
+  public desarrollador = "Javier Sales";
+  public fecha = new Date();
+
   ngOnInit(): void {
   }
 

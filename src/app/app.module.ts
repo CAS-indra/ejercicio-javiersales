@@ -5,18 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CabeceraComponent } from './layout/cabecera/cabecera.component';
 import { PieComponent } from './layout/pie/pie.component';
-import { HomeModule } from './home/home.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CabeceraComponent,
-    PieComponent
+    PieComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
