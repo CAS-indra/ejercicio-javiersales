@@ -26,7 +26,7 @@ const routes: Routes = [
   {
     path: 'transaction/:id',
     loadChildren: () => import('./transaction-editor/transaction-editor.module').then(m => m.TransactionEditorModule)
-  }
+  },
 ];
 
 @NgModule({

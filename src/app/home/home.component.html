@@ -2,8 +2,10 @@
 <h3>Transacciones realizadas: {{transacciones.length}}</h3>
 <div *ngFor="let x of transacciones">
   <div >
-  <ul type='square'[style.background-color]="x.kind == 'spent'?'red':'green'">
-    <li>({{x.date | date :'shortDate'}}) {{x.name | uppercase}}:</li>
+  <ul type='square'[style.background-color]="x.kind == 'spent'?'orange':'lightgreen'">
+    <li><a [href]="'./transaction/' + x.id" style="text-decoration:none" >
+      ({{x.date | date :'shortDate'}}) {{x.name | uppercase}}:
+    </a></li>
     <li>Amount:
     <span *ngIf="x.kind == 'income' ; else gasto">
       +{{x.amount}}

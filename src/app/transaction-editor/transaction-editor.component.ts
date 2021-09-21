@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-transaction-editor',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransactionEditorComponent implements OnInit {
 
-  constructor() { }
+  public projectId = '';
+  constructor(route: ActivatedRoute) {
+    this.projectId=route.snapshot.params['id'];
+  }
 
   ngOnInit(): void {
   }
