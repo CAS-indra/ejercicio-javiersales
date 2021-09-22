@@ -1,2 +1,3 @@
-<p>transaction-editor works!</p>
-<p>{{projectId}}</p>
+<div *ngIf="transaction$ | async as transaction">
+{{transaction | json}}
+</div>

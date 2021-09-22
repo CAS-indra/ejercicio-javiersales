@@ -3,7 +3,7 @@
 <div *ngFor="let x of transacciones">
   <div >
   <ul type='square'[style.background-color]="x.kind == 'spent'?'orange':'lightgreen'">
-    <li><a [href]="'./transaction/' + x.id" style="text-decoration:none" >
+    <li><a [routerLink]="'./transaction/' + x.id" style="text-decoration:none" >
       ({{x.date | date :'shortDate'}}) {{x.name | uppercase}}:
     </a></li>
     <li>Amount:
@@ -20,4 +20,5 @@
   </div>
 </div>
 <h3 [style.background-color]="balancetotal <= 0 ?'red':'green'">
-  Balance total: {{balancetotal}} $</h3>
+  Balance total: {{balancetotal}} $
+</h3>

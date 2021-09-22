@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable, of } from 'rxjs';
+import { TransaccionesService } from '../data/transacciones.service';
 
 @Component({
   selector: 'app-transaction-editor',
@@ -8,12 +10,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TransactionEditorComponent implements OnInit {
 
-  public projectId = '';
-  constructor(route: ActivatedRoute) {
-    this.projectId=route.snapshot.params['id'];
+  public transaction$: Observable<any> = of();
+  constructor(route: ActivatedRoute, service: TransaccionesService) {
+    const transactionid =route.snapshot.params['id'];
+    this.transaction$ = service.getTransactionById$(transactionid);
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }

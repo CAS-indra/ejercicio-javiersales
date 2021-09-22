@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { CabeceraComponent } from './layout/cabecera/cabecera.component';
 import { PieComponent } from './layout/pie/pie.component';
 import { HomeComponent } from './home/home.component';
+import { TransaccionesService } from './data/transacciones.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,8 +19,9 @@ import { HomeComponent } from './home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [TransaccionesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
