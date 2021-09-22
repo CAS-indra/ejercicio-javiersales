@@ -9,13 +9,20 @@ import { TransaccionesService } from '../data/transacciones.service';
 export class HomeComponent implements OnInit {
 
   constructor(private service: TransaccionesService) {
-   }
+    this.transacciones = [];
+  }
+
   ngOnInit(): void {
-    this.service.getTransactions$().subscribe(transacciones => this.transacciones = transacciones)
+    this.service.getTransactions$().subscribe(
+      transacciones => {
+        this.transacciones = transacciones ;
+        this.balancetotal = this.getBalance();
+      }
+      )
   }
 
   public title = 'ejercicio-javiersales';
-  public transacciones:any[] = [];
+  public transacciones:any[];
 
   public balancetotal = this.getBalance();
   private getBalance():number{
